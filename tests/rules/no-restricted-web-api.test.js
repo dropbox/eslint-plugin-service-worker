@@ -1,7 +1,7 @@
 const { ruleTester } = require('../utils/rule-tester');
-const { noRestrictedApi } = require('../../src/rules/no-restricted-api');
+const { noRestrictedWebApi } = require('../../src/rules/no-restricted-web-api');
 
-ruleTester.run('no-restricted-api', noRestrictedApi, {
+ruleTester.run('no-restricted-web-api', noRestrictedWebApi, {
   valid: [
     'console.log("hello world");',
     'const res = await fetch("https://www.test.com");',
@@ -70,62 +70,6 @@ ruleTester.run('no-restricted-api', noRestrictedApi, {
       errors: [
         {
           message: 'URL.createObjectURL does not exist in service worker.',
-        },
-      ],
-    },
-    {
-      code: 'browser.browserAction.setIcon();',
-      errors: [
-        {
-          message: 'browser.browserAction does not exist in service worker.',
-        },
-      ],
-    },
-    {
-      code: 'browser.pageAction.setIcon();',
-      errors: [
-        {
-          message: 'browser.pageAction does not exist in service worker.',
-        },
-      ],
-    },
-    {
-      code: 'chrome.browserAction.setIcon();',
-      errors: [
-        {
-          message: 'chrome.browserAction does not exist in service worker.',
-        },
-      ],
-    },
-    {
-      code: 'chrome.pageAction.setIcon();',
-      errors: [
-        {
-          message: 'chrome.pageAction does not exist in service worker.',
-        },
-      ],
-    },
-    {
-      code: 'chrome.tabs.executeScript();',
-      errors: [
-        {
-          message: 'tabs.executeScript does not exist in service worker.',
-        },
-      ],
-    },
-    {
-      code: 'browser.tabs.executeScript();',
-      errors: [
-        {
-          message: 'tabs.executeScript does not exist in service worker.',
-        },
-      ],
-    },
-    {
-      code: 'tabs.executeScript();',
-      errors: [
-        {
-          message: 'tabs.executeScript does not exist in service worker.',
         },
       ],
     },

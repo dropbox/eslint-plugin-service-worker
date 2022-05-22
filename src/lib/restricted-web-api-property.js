@@ -1,12 +1,12 @@
-const mapApiToPropertySet = {
-  URL: new Set(['createObjectURL']),
-};
+const mapApiToPropertySet = new Map([
+  ['URL', new Set(['createObjectURL'])],
+]);
 
 const isWebApiPropertyRestricted = (object, property) => {
-  const propertySet = mapApiToPropertySet[object];
-  if (!propertySet || propertySet.size < 1) {
+  if (!mapApiToPropertySet.has(object)) {
     return false;
   }
+  const propertySet = mapApiToPropertySet.get(object);
   return propertySet.has(property);
 };
 

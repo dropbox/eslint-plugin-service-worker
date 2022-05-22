@@ -2,21 +2,24 @@
   "peerDependencies": {
     "eslint": "^8.16.0"
   },
-  "name": "eslint-plugin-service-worker-poc",
+  "name": "@dropbox/eslint-plugin-service-worker",
   "version": "1.0.0",
   "description": "ESLint rules to report disallowed APIs in service worker environment.",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint src tests --fix"
+    "test:coverage": "npm run test -- --collectCoverage",
+    "lint": "eslint src tests",
+    "lint:fix": "npm run lint -- --fix",
+    "build": "npm run lint && npm run test:coverage"
   },
   "keywords": [
     "eslint",
     "eslint-plugin",
     "service-worker"
   ],
-  "author": "hoseong.a.lee@gmail.com",
-  "license": "MIT",
+  "main": "src/index.js",
+  "license": "Apache-2.0",
   "dependencies": {
     "jsdom": "^19.0.0"
   },
