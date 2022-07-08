@@ -3,7 +3,7 @@ ESLint plugin for service worker environment.
 
 ## Installation
 ```bash
-npm install eslint eslint-plugin-service-worker -D
+npm install eslint @dropbox/eslint-plugin-service-worker -D
 ```
 
 ## Configuration
@@ -12,12 +12,12 @@ npm install eslint eslint-plugin-service-worker -D
 module.exports = {
   ...
   plugin: [
-    "service-worker"
+    "@dropbox/service-worker",
   ],
   rules: {
-    "service-worker/no-restricted-web-api": "error",
-    "service-worker/no-deprecated-extension-api": "error",
-    "service-worker/no-dynamic-import": "error"
+    "@dropbox/service-worker/no-restricted-web-api": "error",
+    "@dropbox/service-worker/no-deprecated-extension-api": "error",
+    "@dropbox/service-worker/no-dynamic-import": "error",
   },
   ...
 }
