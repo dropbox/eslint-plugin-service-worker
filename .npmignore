@@ -1,5 +1,8 @@
+node_modules
+*swp
+*swo
+.idea
+coverage
 tests
 .*
 *.config.js
-coverage
-node_modules
